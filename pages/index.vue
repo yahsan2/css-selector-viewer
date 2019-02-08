@@ -132,7 +132,7 @@ export default {
     css () {
       return `${this.selector}{
         background-color: cyan !important;
-        border-color: magenta !important;
+        border-color: yellow !important;
       }`
     },
     exapandHtml () {
