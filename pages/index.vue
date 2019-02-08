@@ -91,7 +91,7 @@
 }
 
 [data-tag]:empty{
-  padding: 30px;
+  padding: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -102,7 +102,6 @@
 }
 
 [data-tag]:first-child:last-child{
-  padding: 30px;
   width: 100% ;
 }
 
