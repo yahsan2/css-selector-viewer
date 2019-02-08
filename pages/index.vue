@@ -101,6 +101,11 @@
   }
 }
 
+[data-tag]:first-child:last-child{
+  padding: 30px;
+  width: 100% ;
+}
+
 [data-tag]:before {
   content: attr(data-tag);
   position: absolute;
