@@ -116,7 +116,15 @@ import { parse, expand } from '@emmetio/expand-abbreviation'
 
 import selectors from '~/data/selectors.json'
 
+let metyaTEMPORAY = ''
+
 export default {
+  asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {    
+    metyaTEMPORAY = {
+      selector: query.selector,
+      htmlString: query.html 
+    }
+  },
   data () {
     return {
       selectors: selectors,
@@ -151,6 +159,15 @@ export default {
     changeSelector (val) {
       this.selector = val
     }
+  },
+  created () {
+    if (metyaTEMPORAY.selector) {
+      this.selector = metyaTEMPORAY.selector      
+    }
+    if (metyaTEMPORAY.htmlString) {
+      this.htmlString = metyaTEMPORAY.htmlString
+    }
+   
   }
 }
 </script>
