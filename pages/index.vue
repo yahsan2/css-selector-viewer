@@ -120,7 +120,7 @@ export default {
       selectors: selectors,
       selector: 'div p',
       selectedSelector: 'div p',
-      htmlString: 'div*2>(p>span+span+span+span)*2'
+      htmlString: 'div*2>(p>span+span+small+span)*2'
     }
   },
   computed: {
