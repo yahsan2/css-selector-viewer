@@ -1,0 +1,154 @@
+<template>
+  <v-layout
+    column
+    justify-center
+  >
+    <v-flex
+      xs12
+      sm8
+      md6
+    >
+      <h1 class="mb-3 title">CSS Selector Viewer</h1>
+    </v-flex>
+    <v-flex
+      xs12
+      sm8
+      md6
+    >
+      <v-select
+        :items="selectors"
+        :value="selectedSelector"
+        item-text="title"
+        item-value="selector"
+        @change="changeSelector"
+        label="セレクタ"
+      ></v-select>        
+    </v-flex>    
+    <v-flex xs12 v-if="presetSelector">
+      <v-card color="blue-grey" class="white--text">
+        <v-card-title primary-title>
+          <div>
+            <div class="headline">{{presetSelector.title}}</div>
+            <span>{{presetSelector.point}}</span>
+          </div>
+        </v-card-title>
+      </v-card>
+    </v-flex>    
+    <v-flex
+      xs12
+      sm8
+      md6
+    >
+      <div id="css-target-root" v-html="exapandHtml"/>
+    </v-flex>
+    <v-flex
+      xs12
+      sm8
+      md6
+      class="mt-4"
+    >
+      <div class="text-xs-center">        
+        <v-text-field
+          v-model="selector"
+          box
+          label="css selector"
+          color="deep-purple"
+        ></v-text-field>
+        <v-text-field
+          v-model="htmlString"
+          label="html (emmet) "
+          box
+          color="deep-purple"
+        ></v-text-field>
+        <style v-html="`#css-target-root ${css}`" v-if="selector"></style>
+      </div>
+    </v-flex>
+  </v-layout>
+</template>
+
+<style>
+#css-target-root{
+  background: #333;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;  
+}
+
+[data-tag]{
+  box-sizing: border-box;
+  width: calc(50% - 20px);
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #fff;
+  display: flex;
+  flex-wrap: wrap;
+  background: #455a64;
+}
+#css-target-root > [data-tag]{
+  width: calc(100% - 20px);
+}
+
+[data-tag]:empty{
+  padding: 30px;
+}
+[data-tag]:before {
+  content: attr(data-tag);
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  padding: 2px 5px;
+  font-size: 10px;
+  text-align: center;
+  color: #455a64;
+  background-color: #fff;
+}
+</style>
+
+
+<script>
+import htmlspecialchars from "htmlspecialchars"
+import { parse, expand } from '@emmetio/expand-abbreviation'
+
+import selectors from '~/data/selectors.json'
+
+export default {
+  data () {
+    return {
+      selectors: selectors,
+      selector: 'div p',
+      selectedSelector: 'div p',
+      htmlString: 'div*2>(p>span+span+span+span)*2'
+    }
+  },
+  computed: {
+    presetSelector () {
+      return this.selectors.filter((s) => s.selector.replace(' ', ' ') === this.selector.replace('  ', ' '))[0]
+    },
+    css () {
+      return `${this.selector}{
+        background-color: cyan !important;
+        border-color: magenta !important;
+      }`
+    },
+    exapandHtml () {
+      try {
+        const tree = parse(this.htmlString);
+        tree.walk(node => { 
+          node.setAttribute('data-tag', node.name)
+        })
+        return expand(tree)        
+      } catch (error) {
+        return 'HTML省略記法(Emmet)が正しくありません。'        
+      }
+    }
+  },
+  methods: {
+    changeSelector (val) {
+      this.selector = val
+    }
+  }
+}
+</script>
