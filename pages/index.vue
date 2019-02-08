@@ -92,6 +92,8 @@
 
 [data-tag]:empty{
   padding: 30px;
+  width: calc(100%);
+  margin: 5px 0;
 }
 [data-tag]:before {
   content: attr(data-tag);
