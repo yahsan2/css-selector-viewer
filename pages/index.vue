@@ -22,7 +22,13 @@
         item-value="selector"
         @change="changeSelector"
         label="セレクタ"
-      ></v-select>        
+      ></v-select>
+      <v-text-field
+        v-model="selector"
+        box
+        label="css selector"
+        color="deep-purple"
+      ></v-text-field>    
     </v-flex>    
     <v-flex xs12 v-if="presetSelector">
       <v-card color="blue-grey" class="white--text">
@@ -48,12 +54,6 @@
       class="mt-4"
     >
       <div class="text-xs-center">        
-        <v-text-field
-          v-model="selector"
-          box
-          label="css selector"
-          color="deep-purple"
-        ></v-text-field>
         <v-text-field
           v-model="htmlString"
           label="html (emmet) "
