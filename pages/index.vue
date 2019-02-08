@@ -156,8 +156,19 @@ export default {
     }
   },
   methods: {
+    changeUrl (val) {
+      window.history.pushState(null, `${this.selector} の CSSの見えかた`, `?selector=${encodeURIComponent(this.selector)}&html=${encodeURIComponent(this.htmlString)}`)
+    },
     changeSelector (val) {
       this.selector = val
+    }
+  },
+  watch: {
+    selector () {
+      this.changeUrl()
+    },
+    htmlString () {
+      this.changeUrl()
     }
   },
   created () {
