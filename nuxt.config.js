@@ -50,8 +50,8 @@ module.exports = {
   */
   modules: [
     ['@nuxtjs/google-analytics', {
-      id: ENV.GOOGLE_ANALYTICS_ID,
-    }
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }]
   ],
 
   /*
