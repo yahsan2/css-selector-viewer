@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emmetio/expand-abbreviation": "^0.7.3",
+    "@nuxtjs/google-analytics": "^2.0.2",
     "cross-env": "^5.2.0",
     "htmlspecialchars": "^1.0.5",
     "nuxt": "^2.3.4",
