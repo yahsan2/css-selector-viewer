@@ -16,7 +16,7 @@
       md6
     >
       <v-select
-        :items="selectors"
+        :items="selectorsOptions"
         :value="selectedSelector"
         item-text="title"
         item-value="selector"
@@ -150,12 +150,20 @@ export default {
       selectors: selectors,
       selector: 'div p',
       selectedSelector: 'div p',
-      htmlString: 'div*2>(p>span+span+small+span)*2'
+      htmlString: 'div>(div>p+h3+p+p)+(section>p+h3+p+p)+(p>span+span+small+span)*2'
     }
   },
   computed: {
     presetSelector () {
       return this.selectors.filter((s) => s.selector.replace(' ', ' ') === this.selector.replace('  ', ' '))[0]
+    },
+    selectorsOptions () {
+      return this.selectors.map((s)=>{
+        return {
+          title: `${s.title} (${s.selector})`,
+          selector: s.selector
+        }
+      })
     },
     css () {
       return `${this.selector}{
