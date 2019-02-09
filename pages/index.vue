@@ -151,7 +151,7 @@
 }
 .share-button{
   text-transform: none;
-  max-width: 320px;
+  /* max-width: 320px; */
   margin: 30px auto 30px;
 }
 
