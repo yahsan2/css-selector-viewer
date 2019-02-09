@@ -61,6 +61,7 @@
           color="deep-purple"
         ></v-text-field>
         <style v-html="`#css-target-root ${css}`" v-if="selector"></style>
+        <p>セレクタの説明はこちらの<a href="https://webliker.info/css-selector-cheat-sheet/" target="_blank" rel="noopener">CSSセレクタのチートシート</a>の説明を使わせております。</p>
       </div>
     </v-flex>
     <v-flex
@@ -69,7 +70,7 @@
       md6
       class="mt-4"
     >
-      <h2 class="mb-2">このサイトは個人のサポーターの方々によって成り立っています。</h2>
+      <h2 class="mb-2">このサイトは、個人サポーターの方々によって成り立っています。</h2>
       <iframe src="https://poiit.me/yahsan2/embed/supporters" frameborder="0" height="140px" width="100%"></iframe>
       <a href="https://poiit.me/yahsan2/?utm_source=poiit&utm_medium=referral&utm_campaign=v1.0&utm_content=embed-banner" target="_blank" rel="noopener"><img style="display: block; max-width: 100%; width: 510px;" src="https://assets.poiit.me/yahsan2/ogp.jpeg"></a>
     </v-flex>
