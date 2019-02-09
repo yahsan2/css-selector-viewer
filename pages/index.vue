@@ -104,9 +104,13 @@
 [data-tag]:empty{
   padding: 20px;
 }
+[data-tag].text{
+  display: inline-block;
+}
 
 @media screen and (max-width: 600px) {
-  [data-tag]:empty{
+  [data-tag]:empty,
+  [data-tag].text{
     width: calc(100%);
     margin: 5px 0;
   }
@@ -151,7 +155,7 @@ export default {
       selectors: selectors,
       selector: 'div p',
       selectedSelector: 'div p',
-      htmlString: 'div>(div>p+h3+p+p)+(section>p+h3+p+p)+(p>span+span+small+span)*2'
+      htmlString: 'div>(div>p.text{文字がはいっています。<br>２行目文字がはいっています。}+h3+p+p)+(section>p+h3+p+p)+(p>span+span+small+span)*2'
     }
   },
   computed: {
@@ -168,6 +172,7 @@ export default {
     },
     css () {
       return `${this.selector}{
+        color: magenta !important;
         background-color: cyan !important;
         border-color: yellow !important;
       }`
