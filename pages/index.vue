@@ -65,7 +65,7 @@
           :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(ogTitle)}&url=https://css-selector-viewer.netlify.com/${encodeURIComponent(ogUrl)}`" 
           target="_blank"
           >
-          Twitter でシェアする。
+          「{{this.selector}} 」セレクタを Twitter でシェア
         </v-btn>        
         <style v-html="`#css-target-root ${css}`" v-if="selector"></style>
       </div>
@@ -150,6 +150,7 @@
   margin: 60px auto;
 }
 .share-button{
+  text-transform: none;
   max-width: 320px;
   margin: 30px auto 30px;
 }
