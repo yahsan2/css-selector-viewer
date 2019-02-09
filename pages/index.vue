@@ -147,6 +147,7 @@
 }
 .banners{
   width: 510px; 
+  max-width: 100%;
   margin: 60px auto;
 }
 .share-button{
