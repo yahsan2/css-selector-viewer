@@ -72,6 +72,9 @@
     >
       <h2 class="mb-2">このサイトは、個人サポーターの方々によって成り立っています。</h2>
       <iframe src="https://poiit.me/yahsan2/embed/supporters" frameborder="0" height="140px" width="100%"></iframe>
+      <iframe src="https://poiit.me/yahsan2/embed/button  " frameborder="0" height="100px" width="100%"></iframe>
+
+      <h2 class="mb-2">個人間で応援できるサービスつくっています。</h2>
       <a href="https://poiit.me/yahsan2/?utm_source=poiit&utm_medium=referral&utm_campaign=v1.0&utm_content=embed-banner" target="_blank" rel="noopener"><img style="display: block; max-width: 100%; width: 510px;" src="https://assets.poiit.me/yahsan2/ogp.jpeg"></a>
     </v-flex>
   </v-layout>
