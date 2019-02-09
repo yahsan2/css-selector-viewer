@@ -10,11 +10,33 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'CSS セレクタを可視化できる CSS Selector Viewer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'CSS セレクタの影響範囲を可視化したり、シェアできたります。' },
+      // twitter
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@yahsan2' },
+      { name: 'twitter:image', content: 'https://css-selector-viewer.netlify.com/ogp.png' },
+
+      // Facebook
+      { property: 'fb:app_id', content: '' },
+      {
+        property: 'og:title',
+        content: 'CSS セレクタを可視化できる CSS Selector Viewer',
+        hid: 'ogTitle'
+      },
+      { property: 'og:site_name', content: 'CSS Selector Viewer' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://css-selector-viewer.netlify.com', hid: 'ogUrl' },
+      { property: 'og:locale', content: 'ja_JP' },
+      { property: 'og:image', content: 'https://css-selector-viewer.netlify.com/ogp.png', hid: 'ogImage' },
+      {
+        property: 'og:description',
+        content: 'CSS セレクタの影響範囲を可視化したり、シェアできたります。',
+        hid: 'ogDesc'
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
