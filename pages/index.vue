@@ -60,8 +60,14 @@
           box
           color="deep-purple"
         ></v-text-field>
+        <p class="caption">セレクタの説明はこちらの<a href="https://webliker.info/css-selector-cheat-sheet/" target="_blank" rel="noopener">CSSセレクタのチートシート</a>の説明を使わせております。</p>
+        <v-btn class="share-button" block color="cyan" round dark large 
+          :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(ogTitle)}&url=https://css-selector-viewer.netlify.com/${encodeURIComponent(ogUrl)}`" 
+          target="_blank"
+          >
+          Twitter でシェアする。
+        </v-btn>        
         <style v-html="`#css-target-root ${css}`" v-if="selector"></style>
-        <p>セレクタの説明はこちらの<a href="https://webliker.info/css-selector-cheat-sheet/" target="_blank" rel="noopener">CSSセレクタのチートシート</a>の説明を使わせております。</p>
       </div>
     </v-flex>
     <v-flex
@@ -136,10 +142,18 @@
   color: #455a64;
   background-color: #fff;
 }
+.caption{
+  text-align: right;
+}
 .banners{
   width: 510px; 
   margin: 60px auto;
 }
+.share-button{
+  max-width: 320px;
+  margin: 30px auto 30px;
+}
+
 </style>
 
 
@@ -195,11 +209,17 @@ export default {
       } catch (error) {
         return 'HTML省略記法(Emmet)が正しくありません。'        
       }
+    },
+    ogTitle () {
+      return `"${this.selector}" の CSSの見えかた - CSS セレクタを可視化できる CSS Selector Viewer`
+    },
+    ogUrl () {
+      return `?selector=${encodeURIComponent(this.selector)}&html=${encodeURIComponent(this.htmlString)}`
     }
   },
   methods: {
     changeUrl (val) {
-      window.history.pushState(null, `${this.selector} の CSSの見えかた`, `?selector=${encodeURIComponent(this.selector)}&html=${encodeURIComponent(this.htmlString)}`)
+      window.history.pushState(null, this.ogTitle, this.ogUrl)
     },
     changeSelector (val) {
       this.selector = val
@@ -221,6 +241,14 @@ export default {
       this.htmlString = metyaTEMPORAY.htmlString
     }
    
+  },
+    head () {
+    return {
+      meta: [
+        { property: 'og:title', content: this.ogTitle, hid: 'ogUrl' },
+        { property: 'og:url', content: this.ogUrl, hid: 'ogUrl' }
+      ]
+    }
   }
 }
 </script>
