@@ -60,7 +60,7 @@
           box
           color="deep-purple"
         ></v-text-field>
-        <p class="caption">セレクタの説明はこちらの<a href="https://webliker.info/css-selector-cheat-sheet/" target="_blank" rel="noopener">CSSセレクタのチートシート</a>の説明を使わせております。</p>
+        <p class="caption">セレクタの説明はこちらの<a href="https://webliker.info/css-selector-cheat-sheet/" target="_blank" rel="noopener">CSSセレクタのチートシート</a>の説明を使わさせていただいております。</p>
         <v-btn class="share-button" block color="cyan" round dark large 
           :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(ogTitle)}&url=https://css-selector-viewer.netlify.com/${encodeURIComponent(ogUrl)}`" 
           target="_blank"
