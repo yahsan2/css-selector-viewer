@@ -106,7 +106,7 @@
     },
     {
         "title": "要素が空の時",
-        "selector": "ul:empty",
+        "selector": "p:empty",
         "point": "要素の中身が空っぽの要素に対してCSSを適用できる。"
     }
 ]
