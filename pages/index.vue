@@ -8,7 +8,7 @@
       sm8
       md6
     >
-      <h1 class="mb-3 title">CSS Selector Viewer</h1>
+      <h1 class="mb-3 title"><a href="/">CSS Selector Viewer</a></h1>
     </v-flex>
     <v-flex
       xs12
@@ -70,7 +70,7 @@
       md6
       class="mt-4"
     >
-      <div class="text-xs-center banners">        
+      <div class="text-xs-center banners">    
         <h2 class="mb-2">このサイトは、個人サポーターの方々によって成り立っています。</h2>
         <iframe src="https://poiit.me/yahsan2/embed/supporters" frameborder="0" height="140px" width="100%"></iframe>
         <iframe src="https://poiit.me/yahsan2/embed/button  " frameborder="0" height="100px" width="100%"></iframe>
